@@ -29,17 +29,46 @@ export const EditorContainer = styled.div`
     gap: 1rem;
 
     padding: 3rem 2rem;
-    max-width: 700px;
+    max-width: 800px;
     outline: none;
   }
 
   .bubble {
     display: flex;
+
+    button {
+      background-color: #fff;
+      border: 1px solid #f2f2f2;
+    }
   }
 `;
 
 export const AsideContainer = styled.aside`
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
   background-color: #f6f6f6;
+  border-radius: 0.25rem;
+`;
+
+export const CommentContainer = styled.div`
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+  .heading {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
 `;

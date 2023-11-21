@@ -13,10 +13,10 @@ button {
   justify-content: center;
   gap: 0.5rem;
 
-  background-color: #fff;
+  background-color: transparent;
   padding: 0.5rem;
   border-radius: 0.125rem;
-  border: 1px solid #f2f2f2;
+  border: none;
 
   transition: 0.3s ease;
 

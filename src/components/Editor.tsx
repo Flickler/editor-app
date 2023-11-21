@@ -1,21 +1,24 @@
+//React
 import { useState } from "react";
-
+// TipTap
 import { useEditor, EditorContent, BubbleMenu } from "@tiptap/react";
+import { initialContent } from "../initialContent";
 import StarterKit from "@tiptap/starter-kit";
 import Heading from "@tiptap/extension-heading";
 import Paragraph from "@tiptap/extension-paragraph";
 import Highlight from "@tiptap/extension-highlight";
-import { initialContent } from "../initialContent";
 import BoldIcon from "../icons/bold";
 import ItalicIcon from "../icons/italic";
 import CommentIcon from "../icons/comment";
 import StrikeIcon from "../icons/strike";
 import ChevronDownIcon from "../icons/chevron-down";
-
 type Level = 1 | 2 | 3 | 4 | 5 | 6;
 
 export default function Editor() {
   const editor = useEditor({
+    onUpdate({ editor }) {
+      console.log(editor.getHTML().match(/<mark>(.*?)<\/mark>/));
+    },
     extensions: [
       StarterKit,
       Paragraph,

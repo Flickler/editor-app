@@ -1,4 +1,5 @@
 import Editor from "./components/Editor";
+import Comments from "./components/comments";
 import * as Style from "./styles";
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
     <>
       <Style.AppContainer>
         <Style.EditorContainer>
-          <Style.AsideContainer />
+          <Comments />
           <Editor />
         </Style.EditorContainer>
       </Style.AppContainer>
