@@ -25,6 +25,39 @@ button {
   }
 }
 
+label {
+  font-size: 0.875rem;
+  color: #bcbcbc;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid #bcbcbc;
+  background-color: transparent;
+  padding: 0.125rem 0.5rem;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #bcbcbc;
+  }
+}
+
+textarea {
+  padding: 0.5rem 1rem;
+  min-height: 10rem;
+  min-width: 100%;
+  border: 2px solid #bcbcbc;
+  border-radius: 0.5rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 /* REUSABLE CLASSES */
 .non-visible {
   display: none;

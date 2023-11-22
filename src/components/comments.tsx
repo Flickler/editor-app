@@ -7,13 +7,11 @@ export default function Comments() {
   const comments = useSelector(
     (rootReducer: RootState) => rootReducer.comments.data
   );
-  let fakeId = 0;
   return (
     <AsideContainer>
-      {comments.map((comment) => {
-        fakeId++;
-        return <Comment key={fakeId} comment={comment} />;
-      })}
+      {comments.map((comment) => (
+        <Comment key={comment.id} comment={comment} />
+      ))}
     </AsideContainer>
   );
 }

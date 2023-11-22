@@ -1,41 +1,47 @@
 import { useState } from "react";
 
-import ChevronUpIcon from "../icons/chevron-up";
+import { useDispatch } from "react-redux";
+import { removeComment } from "../redux/commentSlice";
+
 import { CommentContainer } from "../styles";
+import DeleteIcon from "../icons/delete";
+import ChevronUpIcon from "../icons/chevron-up";
 import ChevronDownIcon from "../icons/chevron-down";
 
 export default function Comment({
   comment,
 }: {
-  comment: { title: string; comment?: string };
+  comment: { id: number; title: string; comment?: string };
 }) {
+  const dispatch = useDispatch();
   const [details, setDetails] = useState(false);
-  const [inputComment, setInputComment] = useState("");
 
   const handleToggleDetailsClick = () => {
     setDetails(!details);
+  };
+
+  const handleDeleteClick = () => {
+    dispatch(removeComment(comment.id));
   };
 
   return (
     <CommentContainer>
       <div className="heading">
         <h3>{comment.title}</h3>
-        <button onClick={handleToggleDetailsClick}>
-          {details ? (
-            <ChevronDownIcon size={14} />
-          ) : (
-            <ChevronUpIcon size={14} />
-          )}
-        </button>
+        <div className="actions">
+          <button onClick={handleDeleteClick}>
+            <DeleteIcon size={12} />
+          </button>
+          <button onClick={handleToggleDetailsClick}>
+            {details ? (
+              <ChevronDownIcon size={12} />
+            ) : (
+              <ChevronUpIcon size={12} />
+            )}
+          </button>
+        </div>
       </div>
-      {details && (
-        <input
-          type="text"
-          value={inputComment}
-          onChange={(e) => setInputComment(e.target.value)}
-          placeholder="Adicione um comentário"
-        />
-      )}
+      {details && <p className="description">{comment.comment}</p>}
     </CommentContainer>
   );
 }

@@ -59,16 +59,75 @@ export const CommentContainer = styled.div`
 
   .heading {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      font-size: 0.925rem;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 0.125rem;
+    }
+  }
+
+  .description {
+    font-size: 0.75rem;
+  }
+`;
+
+export const Mask = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100dvw;
+  height: 100dvh;
+`;
+
+export const PopUp = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  background-color: #fff;
+  border-radius: 0.5rem;
+  min-height: 80dvh;
+  min-width: 60dvw;
+
+  padding: 2rem 5rem;
+
+  .heading {
+    display: flex;
     justify-content: space-between;
   }
 
-  input {
-    background-color: transparent;
-    border: none;
-    width: 100%;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-    &:focus {
-      outline: none;
-    }
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    background-color: rgb(59, 130, 246);
+    border-radius: 0.25rem;
   }
 `;

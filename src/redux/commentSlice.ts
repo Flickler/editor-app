@@ -1,15 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-type Comment = { title: string; comment?: string };
+type Comment = { id: number; title: string; comment?: string };
 
-export interface InitialState {
+interface InitialState {
   data: Comment[];
 }
 
 const initialState: InitialState = {
   data: [
-    { title: "comentario 1", comment: "Comentario..." },
-    { title: "comentario 2", comment: "Comentario..." },
+    {
+      id: 0,
+      title: "Adicione comentários",
+      comment: "Você pode adicionar comentários quando quiser",
+    },
   ],
 };
 
@@ -20,8 +23,13 @@ export const commentSlice = createSlice({
     addComment: (state, action: { type: string; payload: Comment }) => {
       state.data = [...state.data, action.payload];
     },
+    removeComment: (state, action: { type: string; payload: number }) => {
+      state.data = state.data.filter(
+        (comment) => comment.id !== action.payload
+      );
+    },
   },
 });
 
-export const { addComment } = commentSlice.actions;
+export const { addComment, removeComment } = commentSlice.actions;
 export default commentSlice.reducer;
